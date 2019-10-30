@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieCard from './MovieCard'
 import axios from 'axios'
+import './GetAllMovies.css';
 
 class GetAllMovies extends React.Component {
   constructor(props) {
@@ -14,6 +15,8 @@ class GetAllMovies extends React.Component {
     this.componentDidMount=this.getAllMovies();
     this.getAllMovies = this.getAllMovies.bind(this); 
     this.handleShowZombieClick=this.handleShowZombieClick.bind(this);
+    this.handleShowSlascherClick=this.handleShowSlascherClick.bind(this);
+    this.handleShowGhostClick=this.handleShowGhostClick.bind(this)
 
   }
   getAllMovies() {
@@ -32,26 +35,42 @@ class GetAllMovies extends React.Component {
 
   handleShowZombieClick() {
     this.setState({ onlyZombie: !this.state.onlyZombie });
+    this.setState({ onlySlascher: false });
+    this.setState({ onlyGhost: false })
+
   }
-  // handleShowSlascherClick() {
-  //   this.setState({ onlySlascher: !this.state.onlySlascher });
-  // }
-  // handleShowGhostClick() {
-  //   this.setState({ onlyGhost: !this.state.onlyGhost });
-  // }
+  handleShowSlascherClick() {
+    this.setState({ onlySlascher: !this.state.onlySlascher});
+    this.setState({ onlyZombie: false });
+    this.setState({ onlyGhost: false })
+  }
+  handleShowGhostClick() {
+     this.setState({ onlyGhost: !this.state.onlyGhost });
+     this.setState({ onlySlascher: false });
+     this.setState({ onlyZombie: false });
+   }
 
 
   render() {
     return (
-      <div >
-        <button onClick={this.handleShowZombieClick}>
+      <div className="home">
+        <div className="buttonNav">
+          <button className="buttonClick" onClick={this.handleShowZombieClick}>
           Zombie
-        </button>
+          </button>
+          <button className="buttonClick" onClick={this.handleShowGhostClick}>
+          Ghost
+          </button>
+         <button className="buttonClick" onClick={this.handleShowSlascherClick}>
+          Slascher
+          </button>
+        </div>
+      
         {this.state.movies
         .filter(
           movie => {
             if (this.state.onlyZombie===true){
-              if(movie.id===6){
+              if(movie.id===80||movie.id===81){
                 return true
               }else{
                 return false
@@ -59,16 +78,49 @@ class GetAllMovies extends React.Component {
             }else{
               return false
             }
-            // this.state.onlyZombie
-            // ?movie.id===2||movie.id===3||movie.id===4||movie.id===5||movie.id===6
-            // :false
           }
         )
         .map((movie)=>(
           <MovieCard {...movie}/>
         ))}
-        {/* <MovieCard movie={this.state.movie}/>
-        <button type="button" onClick={this.getAllMovies}>Get Movie</button>  */}
+
+        {this.state.movies
+        .filter(
+          movie => {
+            if (this.state.onlyGhost===true){
+              if(movie.id===3||movie.id===54){
+                return true
+              }else{
+                return false
+              }
+            }else{
+              return false
+            }
+          }
+        )
+        .map((movie)=>(
+          <MovieCard {...movie}/>
+        ))}
+
+        {this.state.movies
+        .filter(
+          movie => {
+            if (this.state.onlySlascher===true){
+              if(movie.id===76||movie.id===12){
+                return true
+              }else{
+                return false
+              }
+            }else{
+              return false
+            }
+          }
+        )
+        .map((movie)=>(
+          <MovieCard {...movie}/>
+          
+        ))}
+        <video />
       </div>
     );
   }

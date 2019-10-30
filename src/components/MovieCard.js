@@ -1,14 +1,19 @@
-import React from 'react'
+import React from 'react';
+import './MovieCard.css';
  
 function MovieCard (props) {
     console.log(props)
     return(
-        <div>
-            <img src={props.posterUrl} alt=''/>
-            <p>{props.title}</p>
-            <p>{props.director}</p>
-            <p>{props.year}</p>
-        
+        <div className="movieCard">
+            <img className="affiche" src={props.posterUrl} alt='affiche'/>
+            <div className="description">
+                <p className="texte">Titre : </p>
+                <h2>{props.title.replace(/_/g," ")}</h2>
+                <p className="texte">Réalisateur : </p>
+                <h3>{props.director.replace(/_/g," ")}</h3>
+                <p className="texte">Année : </p>
+                <h3>{props.year}</h3>
+            </div>
            
         </div>
     )
