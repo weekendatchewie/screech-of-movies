@@ -5,6 +5,7 @@ import './GetAllMovies.css';
 import VideoZombie from './VideoZombie'
 import VideoSlasher from './VideoSlasher'
 import VideoGhost from './VideoGhost'
+import VideoRandom from './VideoRandom'
 
 class GetAllMovies extends React.Component {
   constructor(props) {
@@ -20,10 +21,10 @@ class GetAllMovies extends React.Component {
     this.handleShowZombieClick=this.handleShowZombieClick.bind(this);
     this.handleShowSlascherClick=this.handleShowSlascherClick.bind(this);
     this.handleShowGhostClick=this.handleShowGhostClick.bind(this)
+    this.handleRandomClick=this.handleRandomClick.bind(this)
 
   }
   getAllMovies() {
-
       axios.get('https://hackathon-wild-hackoween.herokuapp.com/movies')
       
       .then(response => response.data) 
@@ -40,24 +41,35 @@ class GetAllMovies extends React.Component {
     this.setState({ onlyZombie: !this.state.onlyZombie });
     this.setState({ onlySlascher: false });
     this.setState({ onlyGhost: false })
-
+    this.setState({ onlyRandom:false})
   }
   handleShowSlascherClick() {
     this.setState({ onlySlascher: !this.state.onlySlascher});
     this.setState({ onlyZombie: false });
     this.setState({ onlyGhost: false })
+    this.setState({ onlyRandom:false})
   }
   handleShowGhostClick() {
      this.setState({ onlyGhost: !this.state.onlyGhost });
      this.setState({ onlySlascher: false });
      this.setState({ onlyZombie: false });
-   }
+     this.setState({ onlyRandom:false})
+  }
+  handleRandomClick() {
+    this.setState({ onlyGhost: false });
+    this.setState({ onlySlascher: false });
+    this.setState({ onlyZombie: false });
+    this.setState({ onlyRandom:!this.state.onlyRandom})
+ }
 
 
   render() {
     return (
       <div className="home">
         <div className="buttonNav">
+          <button className="buttonClick" onClick={this.handleRandomClick}>
+          Random
+          </button>          
           <button className="buttonClick" onClick={this.handleShowZombieClick}>
           Zombie
           </button>
@@ -67,10 +79,30 @@ class GetAllMovies extends React.Component {
          <button className="buttonClick" onClick={this.handleShowSlascherClick}>
           Slasher
           </button>
+          <p className="som">[.SOM] sélectionnez votre frayeur</p>
         </div>
 
         <div className="affichage">
+          {/* <p className="style">Sélectionner votre style</p> */}
         <div className="carte">
+        {this.state.movies
+        .filter(
+          movie => {
+            if (this.state.onlyRandom===true){
+              if(movie.id===(Math.floor(Math.random() * 82)||movie.id===Math.floor(Math.random() * 82))){
+                return true
+              }else{
+                return false
+              }
+            }else{
+              return false
+            }
+          }
+        )
+        .map((movie)=>(
+          <MovieCard {...movie}/>
+        ))
+        }
         {this.state.movies
         .filter(
           movie => {
@@ -131,6 +163,7 @@ class GetAllMovies extends React.Component {
           {this.state.onlyZombie === true ? <VideoZombie /> : ""}
           {this.state.onlyGhost === true ? <VideoGhost /> : ""}
           {this.state.onlySlascher === true ? <VideoSlasher /> : ""}
+          {this.state.onlyRandom === true ? <VideoRandom /> : ""}
         </div>
       </div>
       </div>

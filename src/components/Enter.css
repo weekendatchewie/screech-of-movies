@@ -1,17 +1,22 @@
 .EnterTitle{
-    font-family: 'Fredericka the Great',cursive;
+    font-family: 'Fredericka the Great',cursive ;
     font-size:10.5em;
     color:white;
     text-align:center;
+    
 }
 
 .EnterButton{
-    font-family: 'Nosifer', cursive;
+    font-family: 'Nosifer', cursive ;
     width:50%;
     margin-left:25%;
     margin-right:25%;
-    height:100px;
+    height:200px;
     font-size:2em;
+    background: rgba(255,255,255,0);
+    box-shadow:10px 5px 5px  ghostwhite;
+    color: ghostwhite;
+    
 }
 
 .EnterScreen{
@@ -20,10 +25,27 @@
     background-repeat:no-repeat;
     background-position:center;
     width:100%;
-    height:1000px;
+    height:1000px;;
+    display: flex;
+    flex-direction: column;
 }
 
-.EcranAccueil{
+.EnterScreen .EcranAccueil{
     display:flex;
     flex-direction:column;
+}
+ .titleEnterDiv{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+} 
+.EnterScreen .recPoint{
+    width: 15%;
+    height: 15%;
+    
+    
+}
+.recPoint{
+    margin-top:10%;
 }
