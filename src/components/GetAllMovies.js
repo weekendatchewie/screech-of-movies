@@ -2,7 +2,9 @@ import React from 'react';
 import MovieCard from './MovieCard'
 import axios from 'axios'
 import './GetAllMovies.css';
-import Video from './Video'
+import VideoZombie from './VideoZombie'
+import VideoSlasher from './VideoSlasher'
+import VideoGhost from './VideoGhost'
 
 class GetAllMovies extends React.Component {
   constructor(props) {
@@ -66,7 +68,9 @@ class GetAllMovies extends React.Component {
           Slasher
           </button>
         </div>
-      
+
+        <div className="affichage">
+        <div className="carte">
         {this.state.movies
         .filter(
           movie => {
@@ -83,7 +87,8 @@ class GetAllMovies extends React.Component {
         )
         .map((movie)=>(
           <MovieCard {...movie}/>
-        ))}
+        ))
+        }
 
         {this.state.movies
         .filter(
@@ -107,7 +112,7 @@ class GetAllMovies extends React.Component {
         .filter(
           movie => {
             if (this.state.onlySlascher===true){
-              if(movie.id===76||movie.id===12){
+              if(movie.id===54||movie.id===67){
                 return true
               }else{
                 return false
@@ -118,12 +123,16 @@ class GetAllMovies extends React.Component {
           }
         )
         .map((movie)=>(
-          <div>
             <MovieCard {...movie}/>
-            
-          </div>
         ))
         } 
+        </div>
+        <div className="VideoPlay">
+          {this.state.onlyZombie === true ? <VideoZombie /> : ""}
+          {this.state.onlyGhost === true ? <VideoGhost /> : ""}
+          {this.state.onlySlascher === true ? <VideoSlasher /> : ""}
+        </div>
+      </div>
       </div>
     );
   }

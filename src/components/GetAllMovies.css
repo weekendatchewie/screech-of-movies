@@ -27,3 +27,14 @@
     font-family: 'Nosifer', cursive;
 
 }
+
+.carte{
+    display:flex;
+    flex-direction:column;
+}
+
+.affichage{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+}
