@@ -14,6 +14,7 @@ class GetAllMovies extends React.Component {
       onlyZombie:false,
       onlySlascher:false,
       onlyGhost:false,
+      randomId:0,
       movies: []
     };
     this.componentDidMount=this.getAllMovies();
@@ -55,15 +56,26 @@ class GetAllMovies extends React.Component {
      this.setState({ onlyZombie: false });
      this.setState({ onlyRandom:false})
   }
+  getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min +1)) + min;
+    }
+
   handleRandomClick() {
-    this.setState({ onlyGhost: false });
-    this.setState({ onlySlascher: false });
-    this.setState({ onlyZombie: false });
-    this.setState({ onlyRandom:!this.state.onlyRandom})
+    const randomValue=this.getRandomIntInclusive(1,82)
+    this.setState({
+      onlyGhost: false, 
+      onlyZombie: false, 
+      onlySlascher: false ,
+      randomId:this.getRandomIntInclusive(1, 82),
+      onlyRandom:!this.state.onlyRandom 
+    });
  }
 
 
   render() {
+    console.log(this.getRandomIntInclusive(1,80))
     return (
       <div className="home">
         <div className="buttonNav">
@@ -89,7 +101,7 @@ class GetAllMovies extends React.Component {
         .filter(
           movie => {
             if (this.state.onlyRandom===true){
-              if(movie.id===(Math.floor(Math.random() * 4)||movie.id===Math.floor(Math.random() * 4))){
+              if((movie.id===this.state.randomId)||(movie.id===this.state.randomId+1)){
                 return true
               }else{
                 return false
