@@ -2,6 +2,7 @@ import React from 'react';
 import MovieCard from './MovieCard'
 import axios from 'axios'
 import './GetAllMovies.css';
+import Video from './Video'
 
 class GetAllMovies extends React.Component {
   constructor(props) {
@@ -62,7 +63,7 @@ class GetAllMovies extends React.Component {
           Ghost
           </button>
          <button className="buttonClick" onClick={this.handleShowSlascherClick}>
-          Slascher
+          Slasher
           </button>
         </div>
       
@@ -117,10 +118,12 @@ class GetAllMovies extends React.Component {
           }
         )
         .map((movie)=>(
-          <MovieCard {...movie}/>
-          
-        ))}
-        <video />
+          <div>
+            <MovieCard {...movie}/>
+            
+          </div>
+        ))
+        } 
       </div>
     );
   }
