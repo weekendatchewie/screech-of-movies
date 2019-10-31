@@ -89,7 +89,7 @@ class GetAllMovies extends React.Component {
         .filter(
           movie => {
             if (this.state.onlyRandom===true){
-              if(movie.id===(Math.floor(Math.random() * 82)||movie.id===Math.floor(Math.random() * 82))){
+              if(movie.id===(Math.floor(Math.random() * 4)||movie.id===Math.floor(Math.random() * 4))){
                 return true
               }else{
                 return false
@@ -126,7 +126,7 @@ class GetAllMovies extends React.Component {
         .filter(
           movie => {
             if (this.state.onlyGhost===true){
-              if(movie.id===3||movie.id===54){
+              if(movie.id===75||movie.id===82){
                 return true
               }else{
                 return false
