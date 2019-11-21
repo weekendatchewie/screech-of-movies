@@ -50,3 +50,41 @@
     font-size:2.5em;
     color:red; 
 }
+
+@media only screen and (max-width: 600px){
+    .buttonNav{
+        display:flex;
+        flex-direction:row-reverse;
+        flex-wrap:wrap;
+        width:100%;
+    }
+    .buttonClick{
+        width:40%;
+        margin-right:5%;
+        margin-left:5%;
+    }
+    .som{
+        font-size: 1.4em;
+        margin-right:2%;
+    }
+    .home{
+        width:100%;
+        display:flex;
+        flex-direction:column;
+    }
+    /* .VideoPlay{
+        width:25px
+    } */
+    .carte{
+        width:100%;
+        display:flex;
+        flex-direction:column;
+        flex-wrap:wrap;
+        margin-top:50px;
+    }
+    .affichage{
+        width:100%;
+        display:flex;
+        flex-direction:column;
+    }
+}

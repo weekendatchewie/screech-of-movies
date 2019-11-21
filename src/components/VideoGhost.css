@@ -3,3 +3,26 @@
     margin-bottom:15%;
     margin-left:2%;
 }
+
+iframe{
+    width:952px;
+    height:535px; 
+}
+
+@media only screen and (max-width: 600px){
+    .videoGhost{
+        margin-top:10%;
+        margin-bottom:15%;
+        margin-left:2%;
+        width:95%;
+        margin-right:2%;
+    }
+    .VideoPlay{
+        width:95%;
+    }
+    iframe{
+        margin-left:2%;
+        width:380px;
+        height:214px;
+    }
+}

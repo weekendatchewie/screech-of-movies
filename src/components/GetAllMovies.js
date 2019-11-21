@@ -95,88 +95,88 @@ class GetAllMovies extends React.Component {
         </div>
 
         <div className="affichage">
-          {/* <p className="style">Sélectionner votre style</p> */}
-        <div className="carte">
-        {this.state.movies
-        .filter(
-          movie => {
-            if (this.state.onlyRandom===true){
-              if((movie.id===this.state.randomId)||(movie.id===this.state.randomId+1)){
-                return true
+            {/* <p className="style">Sélectionner votre style</p> */}
+          <div className="carte">
+          {this.state.movies
+          .filter(
+            movie => {
+              if (this.state.onlyRandom===true){
+                if((movie.id===this.state.randomId)||(movie.id===this.state.randomId+1)){
+                  return true
+                }else{
+                  return false
+                }
               }else{
                 return false
               }
-            }else{
-              return false
             }
-          }
-        )
-        .map((movie)=>(
-          <MovieCard {...movie}/>
-        ))
-        }
-        {this.state.movies
-        .filter(
-          movie => {
-            if (this.state.onlyZombie===true){
-              if(movie.id===80||movie.id===81){
-                return true
-              }else{
-                return false
-              }
-            }else{
-              return false
-            }
-          }
-        )
-        .map((movie)=>(
-          <MovieCard {...movie}/>
-        ))
-        }
-
-        {this.state.movies
-        .filter(
-          movie => {
-            if (this.state.onlyGhost===true){
-              if(movie.id===75||movie.id===82){
-                return true
-              }else{
-                return false
-              }
-            }else{
-              return false
-            }
-          }
-        )
-        .map((movie)=>(
-          <MovieCard {...movie}/>
-        ))}
-
-        {this.state.movies
-        .filter(
-          movie => {
-            if (this.state.onlySlascher===true){
-              if(movie.id===54||movie.id===67){
-                return true
-              }else{
-                return false
-              }
-            }else{
-              return false
-            }
-          }
-        )
-        .map((movie)=>(
+          )
+          .map((movie)=>(
             <MovieCard {...movie}/>
-        ))
-        } 
-        </div>
-        <div className="VideoPlay">
-          {this.state.onlyZombie === true ? <VideoZombie /> : ""}
-          {this.state.onlyGhost === true ? <VideoGhost /> : ""}
-          {this.state.onlySlascher === true ? <VideoSlasher /> : ""}
-          {this.state.onlyRandom === true ? <VideoRandom /> : ""}
-        </div>
+          ))
+          }
+          {this.state.movies
+          .filter(
+            movie => {
+              if (this.state.onlyZombie===true){
+                if(movie.id===80||movie.id===81){
+                  return true
+                }else{
+                  return false
+                }
+              }else{
+                return false
+              }
+            }
+          )
+          .map((movie)=>(
+            <MovieCard {...movie}/>
+          ))
+          }
+
+          {this.state.movies
+          .filter(
+            movie => {
+              if (this.state.onlyGhost===true){
+                if(movie.id===75||movie.id===82){
+                  return true
+                }else{
+                  return false
+                }
+              }else{
+                return false
+              }
+            }
+          )
+          .map((movie)=>(
+            <MovieCard {...movie}/>
+          ))}
+
+          {this.state.movies
+          .filter(
+            movie => {
+              if (this.state.onlySlascher===true){
+                if(movie.id===54||movie.id===67){
+                  return true
+                }else{
+                  return false
+                }
+              }else{
+                return false
+              }
+            }
+          )
+          .map((movie)=>(
+              <MovieCard {...movie}/>
+          ))
+          } 
+          </div>
+          <div className="VideoPlay">
+            {this.state.onlyZombie === true ? <VideoZombie /> : ""}
+            {this.state.onlyGhost === true ? <VideoGhost /> : ""}
+            {this.state.onlySlascher === true ? <VideoSlasher /> : ""}
+            {this.state.onlyRandom === true ? <VideoRandom /> : ""}
+          </div>
       </div>
       </div>
     );

@@ -30,3 +30,34 @@ h2{
     margin-top:0
 }
 
+@media only screen and (max-width: 600px){
+    .affiche{
+        width:30%;
+        margin-top:1%;
+    }
+    .movieCard{
+        margin-top:5px;
+        display:flex;
+        flex-direction: row;
+        width:88%;
+        margin-right:15%;
+        height:140px;
+        justify-content: space-around;
+    }
+    .description{
+        font-size:0.9em;
+
+    }
+    .movieCard h2{
+        margin-top:0%;
+        margin-bottom:0%;
+    }
+    .movieCard h3{
+        margin-top:0%;
+        margin-bottom:0%;
+    }
+    .movieCard p{
+        margin-top:0%;
+        margin-bottom:0%;
+    }
+}

@@ -52,3 +52,32 @@
 }
 
 
+@media only screen and (max-width: 600px){
+    .recPoint{
+        margin-top:55%;
+        
+    }
+    .EnterTitle{
+        font-family: 'Fredericka the Great',cursive ;
+        font-size:5.5em;
+        color:white;
+        text-align:center;
+        margin-top:50%; 
+        margin-left:5%;       
+    }
+    .titleEnterDiv{
+        margin-left:0;
+        margin-right:15%;
+    }
+    
+    .EnterButton{
+        font-family: 'Nosifer', cursive ;
+        width:75%;
+        margin-left:5%;
+        margin-right:5%;
+        height:200px;
+        font-size:1.5em;
+
+        
+    }
+}
