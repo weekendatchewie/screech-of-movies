@@ -1,4 +1,4 @@
-.videoGhost{
+.videoGhost, .videoZombie, .videoSlasher{
     margin-top:10%;
     margin-bottom:15%;
     margin-left:2%;
@@ -8,9 +8,23 @@ iframe{
     width:952px;
     height:535px; 
 }
+.VideoPlay{
+    width:95%;
+}
+@media only screen and (min-width: 601px) and (max-width: 1800px){
+    iframe{
+        width:100%;
+
+    }
+    .VideoPlay{
+        width:40%;
+        height:80%;
+    }
+}
+
 
 @media only screen and (max-width: 600px){
-    .videoGhost{
+    .videoGhost, .videoZombie, .videoSlasher{
         margin-top:10%;
         margin-bottom:15%;
         margin-left:2%;
@@ -22,7 +36,7 @@ iframe{
     }
     iframe{
         margin-left:2%;
-        width:380px;
-        height:214px;
+        width:304px;
+        height:172px;
     }
 }
